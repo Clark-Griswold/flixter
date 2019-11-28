@@ -48,16 +48,16 @@
     <%= @course.description %>
   </div>
 </div>
-
-<div class="col-12">
-  <% @course.sections.each do |section| %>
+<!-- row order for sections -->
+<% @course.sections.rank(:row_order).each do |section| %>
+  <div class="col-12">
     <br /><br />
     <div class="section">
       <h3>
         <%= section.title %>
       </h3>
       <div class="row">
-        
+       <!-- row order for lessions --> 
         <%section.lessons.rank(:row_order).each do |lesson| %>
           <div class="col-12 col-sm-6">
             <div class="lesson text-center">
