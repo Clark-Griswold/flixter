@@ -3,9 +3,7 @@
 <div class="booyah-box col-10 offset-1">
   <h1 class="text-center"><%= @course.title %></h1>
   <!-- adding an image -->
-  <% if @course.image_url %>
-    <%= image_tag @course.image.url, class: 'img-fluid' %>
-  <% end %>
+  <%= image_tag @course.image.to_s, class: 'img-fluid' %>
   <!-- end image -->
   <br />
   <div class="row">
@@ -49,8 +47,9 @@
   </div>
 </div>
 <!-- row order for sections -->
-<% @course.sections.rank(:row_order).each do |section| %>
-  <div class="col-12">
+<div class="col-12">
+  <% @course.sections.rank(:row_order).each do |section| %>
+  
     <br /><br />
     <div class="section">
       <h3>
